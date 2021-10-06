@@ -113,9 +113,9 @@ private extension ViewController {
             }
             
             if self.makeSubscriptionPayment{
-                self.appInvoke.openPaytmSubscription(merchantId: self.merchantId, orderId: self.orderId, txnToken: self.txnToken, amount: self.amount, callbackUrl: self.callBackURL, delegate: self, environment: env)
+                self.appInvoke.openPaytmSubscription(merchantId: self.merchantId, orderId: self.orderId, txnToken: self.txnToken, amount: self.amount, callbackUrl: self.callBackURL, delegate: self, environment: env, urlScheme: "")
             }else{
-                self.appInvoke.openPaytm(merchantId: self.merchantId, orderId: self.orderId, txnToken: self.txnToken, amount: self.amount, callbackUrl:self.callBackURL, delegate: self, environment: env)
+                self.appInvoke.openPaytm(merchantId: self.merchantId, orderId: self.orderId, txnToken: self.txnToken, amount: self.amount, callbackUrl:self.callBackURL, delegate: self, environment: env, urlScheme: "")
             }
         }
     }
