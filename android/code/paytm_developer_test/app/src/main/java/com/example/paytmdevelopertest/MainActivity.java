@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText txnAmount = (EditText) findViewById(R.id.txnAmountId);
         CheckBox environment = (CheckBox) findViewById(R.id.environmentCheckbox);
 
-
-
         txnAmountString = txnAmount.getText().toString();
         midString = mid.getText().toString();
         orderIdString = orderId.getText().toString();
@@ -71,13 +69,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Toast.makeText(this, errors, Toast.LENGTH_SHORT).show();
 
-
         progressBar.setVisibility(View.GONE);
         if(errors.equalsIgnoreCase("")){
             String orderDetails = "MID: " + midString + ", OrderId: " + orderIdString + ", TxnToken: " + txnTokenString + ", Amount: " + txnAmountString;
             Toast.makeText(this, orderDetails, Toast.LENGTH_SHORT).show();
-
-
 
             String callBackUrl = host + "theia/paytmCallback?ORDER_ID="+orderIdString;
             PaytmOrder paytmOrder = new PaytmOrder(orderIdString, midString, txnTokenString, txnAmountString, callBackUrl);
@@ -127,9 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             transactionManager.setShowPaymentUrl(host + "theia/api/v1/showPaymentPage");
             transactionManager.startTransaction(this, ActivityRequestCode);
         }
-
-
-        
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
